@@ -53,7 +53,6 @@
   .eyebrow{ font-size:12.5px; font-weight:700; color:var(--clay); margin-bottom:10px; }
   .section h2{ font-size:27px; margin:0 0 44px; font-weight:900; }
 
-  /* symptom -> book grid */
   .rx-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
   .rx-item{ background:var(--card); border:1px solid var(--line); border-radius:8px; padding:26px; }
   .symptom{ font-size:12.5px; color:var(--sage); font-weight:700; margin-bottom:10px; }
@@ -65,7 +64,6 @@
   .rx-item:hover{ transform:translateY(-4px); border-color:var(--sage); }
   .read-more{ display:block; margin-top:14px; font-size:12.5px; color:var(--clay); font-weight:700; }
 
-  /* book cover */
   .cover{
     width:60px; height:84px; border-radius:3px; flex-shrink:0;
     display:flex; align-items:center; justify-content:center; text-align:center;
@@ -76,13 +74,12 @@
   .cover-2{ background:linear-gradient(135deg,#7C93A8,#39495A); }
   .cover-3{ background:linear-gradient(135deg,#E2825A,#9C4E2F); }
   .cover-lg{ width:96px; height:134px; font-size:13px; }
-  .cover-img{ object-fit:cover; padding:0; }
+  .cover-img{ object-fit:contain; padding:0; background:var(--card); }
   .rx-top{ display:flex; gap:16px; align-items:flex-start; margin-bottom:14px; }
   .card-actions{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; }
   .amazon-btn{ font-size:12px; font-weight:700; color:var(--clay); text-decoration:none; border-bottom:1px solid var(--clay); padding-bottom:1px; }
   .amazon-btn:hover{ opacity:0.8; }
 
-  /* modal */
   .modal-overlay{
     display:none; position:fixed; inset:0; background:rgba(10,16,12,0.72);
     z-index:100; padding:40px 20px; overflow-y:auto;
@@ -111,7 +108,6 @@
     font-weight:700; padding:12px 28px; border-radius:6px; font-size:14px;
   }
 
-  /* how it's compounded (structure) */
   .compound{ display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:1px solid var(--ink); border-radius:8px; overflow:hidden; }
   .compound > div{ padding:30px 22px; border-right:1px solid var(--ink); background:var(--card); }
   .compound > div:last-child{ border-right:none; }
@@ -119,7 +115,6 @@
   .compound h4{ font-size:15.5px; margin:0 0 8px; font-weight:700; }
   .compound p{ font-size:12.5px; color:var(--muted); margin:0; }
 
-  /* pharmacist / author */
   .pharm{ display:grid; grid-template-columns:160px 1fr; gap:36px; align-items:center; }
   .pharm-badge{
     width:160px; height:160px; border-radius:50%; background:var(--sage);
@@ -129,7 +124,6 @@
   .pharm h3{ font-size:19px; margin:0 0 12px; font-weight:700; }
   .pharm p{ font-size:14.5px; color:var(--muted-soft); }
 
-  /* archive as prescription log */
   .log{ list-style:none; padding:0; margin:0; }
   .log li{ display:grid; grid-template-columns:110px 1fr 120px; gap:16px; padding:16px 0; border-bottom:1px dashed var(--line); font-size:14px; align-items:center; }
   .log .d{ font-size:12.5px; color:var(--muted); }
@@ -180,7 +174,7 @@
       <div class="rx-line"><span>症状</span><b>年の瀬、少し疲れ気味</b></div>
       <div class="rx-line"><span>用法</span><b>就寝前、1冊</b></div>
       <div class="rx-top" style="margin-top:16px;">
-        <div class="cover cover-lg cover-img"><img src="images/cover-sanryu-chef.png" alt="三流シェフ 書影" style="width:100%;height:100%;object-fit:cover;border-radius:3px;"></div>
+        <div class="cover cover-lg cover-img"><img src="images/cover-sanryu-chef.png" alt="三流シェフ 書影" style="width:100%;height:100%;object-fit:contain;border-radius:3px;"></div>
         <div>
           <div class="rx-title" style="margin:0 0 4px;">三流シェフ</div>
           <div class="rx-line" style="margin-bottom:0;"><span>著者</span><b>三國清三</b></div>
@@ -199,7 +193,7 @@
     <div class="rx-grid">
       <div class="rx-item" onclick="openRx('book1')">
         <div class="rx-top">
-          <div class="cover cover-img"><img src="images/cover-sanryu-chef.png" alt="三流シェフ 書影" style="width:100%;height:100%;object-fit:cover;border-radius:3px;"></div>
+          <div class="cover cover-img"><img src="images/cover-sanryu-chef.png" alt="三流シェフ 書影" style="width:100%;height:100%;object-fit:contain;border-radius:3px;"></div>
           <div>
             <div class="symptom">症状：挫けそうな夜に</div>
             <h3>三流シェフ</h3>
@@ -215,7 +209,7 @@
       </div>
       <div class="rx-item" onclick="openRx('book2')">
         <div class="rx-top">
-          <div class="cover cover-img"><img src="images/cover-shiwa-sonzaishinai.png" alt="死は存在しない 書影" style="width:100%;height:100%;object-fit:cover;border-radius:3px;"></div>
+          <div class="cover cover-img"><img src="images/cover-shiwa-sonzaishinai.png" alt="死は存在しない 書影" style="width:100%;height:100%;object-fit:contain;border-radius:3px;"></div>
           <div>
             <div class="symptom">症状：漠然とした不安に</div>
             <h3>死は存在しない</h3>
@@ -379,7 +373,7 @@
     const cover = document.getElementById('m-cover');
     if(d.coverImg){
       cover.className = 'cover cover-lg cover-img';
-      cover.innerHTML = '<img src="'+d.coverImg+'" alt="'+d.title+' 書影" style="width:100%;height:100%;object-fit:cover;border-radius:3px;">';
+      cover.innerHTML = '<img src="'+d.coverImg+'" alt="'+d.title+' 書影" style="width:100%;height:100%;object-fit:contain;border-radius:3px;">';
     } else {
       cover.className = 'cover cover-lg ' + d.cover;
       cover.innerHTML = d.coverText;
