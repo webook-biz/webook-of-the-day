@@ -61,6 +61,54 @@
   .rx-item .by{ font-size:12.5px; color:var(--muted); margin-bottom:14px; }
   .rx-item p{ font-size:13.5px; color:var(--muted-soft); margin:0 0 16px; }
   .dose-tag{ display:inline-flex; align-items:center; gap:6px; font-size:11.5px; background:rgba(143,175,124,0.18); color:var(--sage); padding:5px 10px; border-radius:20px; font-weight:700; }
+  .rx-item{ cursor:pointer; transition:transform .15s ease, border-color .15s ease; }
+  .rx-item:hover{ transform:translateY(-4px); border-color:var(--sage); }
+  .read-more{ display:block; margin-top:14px; font-size:12.5px; color:var(--clay); font-weight:700; }
+
+  /* book cover */
+  .cover{
+    width:60px; height:84px; border-radius:3px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    color:#fff; font-size:10.5px; font-weight:700; line-height:1.3; padding:6px;
+    box-shadow:3px 3px 0 rgba(0,0,0,0.28);
+  }
+  .cover-1{ background:linear-gradient(135deg,#8FAF7C,#4F5C42); }
+  .cover-2{ background:linear-gradient(135deg,#7C93A8,#39495A); }
+  .cover-3{ background:linear-gradient(135deg,#E2825A,#9C4E2F); }
+  .cover-lg{ width:96px; height:134px; font-size:13px; }
+  .rx-top{ display:flex; gap:16px; align-items:flex-start; margin-bottom:14px; }
+  .card-actions{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+  .amazon-btn{ font-size:12px; font-weight:700; color:var(--clay); text-decoration:none; border-bottom:1px solid var(--clay); padding-bottom:1px; }
+  .amazon-btn:hover{ opacity:0.8; }
+
+  /* modal */
+  .modal-overlay{
+    display:none; position:fixed; inset:0; background:rgba(10,16,12,0.72);
+    z-index:100; padding:40px 20px; overflow-y:auto;
+  }
+  .modal-overlay.open{ display:block; }
+  .modal{
+    max-width:640px; margin:0 auto; background:var(--card); border:1.5px solid var(--ink);
+    border-radius:10px; padding:40px; position:relative; box-shadow:8px 8px 0 var(--sage);
+  }
+  .modal-close{
+    position:absolute; top:18px; right:22px; font-size:22px; color:var(--muted);
+    cursor:pointer; background:none; border:none; line-height:1; padding:4px;
+  }
+  .modal-close:hover{ color:var(--ink); }
+  .modal-top{ display:flex; gap:20px; align-items:flex-start; margin-bottom:24px; }
+  .modal .symptom{ margin-bottom:8px; }
+  .modal h3{ font-size:24px; margin:0 0 6px; font-weight:900; }
+  .modal .by{ font-size:13px; color:var(--muted); }
+  .modal-block{ margin-bottom:22px; }
+  .modal-block .label{ font-size:12px; font-weight:700; color:var(--clay); margin-bottom:8px; }
+  .modal-block p{ font-size:14.5px; color:var(--muted-soft); margin:0; }
+  .modal .stars{ color:var(--sage); font-size:16px; letter-spacing:2px; }
+  .modal-dose{ font-size:13px; color:var(--clay); background:rgba(226,130,90,0.15); padding:10px 14px; border-radius:4px; margin-bottom:16px; }
+  .modal-amazon{
+    display:inline-block; background:var(--clay); color:#fff; text-decoration:none;
+    font-weight:700; padding:12px 28px; border-radius:6px; font-size:14px;
+  }
 
   /* how it's compounded (structure) */
   .compound{ display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:1px solid var(--ink); border-radius:8px; overflow:hidden; }
@@ -123,16 +171,22 @@
   <div class="wrap">
     <div>
       <div class="rx-mark">℞</div>
-      <h1>元気が足りない日に、<br>一冊を処方します。</h1>
+      <h1>心のビタミン不足に、<br>本の処方箋をどうぞ。</h1>
       <p>「Webook of the Day」は、松山真之助が26年間続けてきた書評メルマガ。悩みや疲れに効く一冊を、症状にあわせて毎回お届けします。</p>
     </div>
-    <div class="rx-card">
+    <div class="rx-card" onclick="openRx('book1')" style="cursor:pointer;">
       <div class="head"><b>処方箋</b><b>No. 1247</b></div>
       <div class="rx-line"><span>症状</span><b>年の瀬、少し疲れ気味</b></div>
       <div class="rx-line"><span>用法</span><b>就寝前、1冊</b></div>
-      <div class="rx-title">三流シェフ</div>
-      <div class="rx-line"><span>著者</span><b>三國清三</b></div>
+      <div class="rx-top" style="margin-top:16px;">
+        <div class="cover cover-1 cover-lg">三流<br>シェフ</div>
+        <div>
+          <div class="rx-title" style="margin:0 0 4px;">三流シェフ</div>
+          <div class="rx-line" style="margin-bottom:0;"><span>著者</span><b>三國清三</b></div>
+        </div>
+      </div>
       <div class="rx-dose">効能：正面から立ち向かう勇気が湧く／即効性あり</div>
+      <a class="amazon-btn" href="https://www.amazon.co.jp/s?k=三流シェフ+三國清三&tag=weboooftheday-22" target="_blank" rel="noopener" onclick="event.stopPropagation()">Amazonで見る →</a>
     </div>
   </div>
 </section>
@@ -142,26 +196,53 @@
     <div class="eyebrow">PRESCRIPTION EXAMPLES</div>
     <h2>こんな症状に、こんな一冊を</h2>
     <div class="rx-grid">
-      <div class="rx-item">
-        <div class="symptom">症状：挫けそうな夜に</div>
-        <h3>三流シェフ</h3>
-        <div class="by">三國清三／幻冬舎</div>
+      <div class="rx-item" onclick="openRx('book1')">
+        <div class="rx-top">
+          <div class="cover cover-1">三流<br>シェフ</div>
+          <div>
+            <div class="symptom">症状：挫けそうな夜に</div>
+            <h3>三流シェフ</h3>
+            <div class="by">三國清三／幻冬舎</div>
+          </div>
+        </div>
         <p>雑用こそ人生の突破口。皿を洗い続けた日々が、幸運を連れてくる半生記。</p>
-        <span class="dose-tag">★★★★★ 即効性</span>
+        <div class="card-actions">
+          <span class="dose-tag">★★★★★ 即効性</span>
+          <a class="amazon-btn" href="https://www.amazon.co.jp/s?k=三流シェフ+三國清三&tag=weboooftheday-22" target="_blank" rel="noopener" onclick="event.stopPropagation()">Amazonで見る →</a>
+        </div>
+        <span class="read-more">詳しい処方内容を見る →</span>
       </div>
-      <div class="rx-item">
-        <div class="symptom">症状：漠然とした不安に</div>
-        <h3>死は存在しない</h3>
-        <div class="by">田坂広志／光文社</div>
+      <div class="rx-item" onclick="openRx('book2')">
+        <div class="rx-top">
+          <div class="cover cover-2">死は存在<br>しない</div>
+          <div>
+            <div class="symptom">症状：漠然とした不安に</div>
+            <h3>死は存在しない</h3>
+            <div class="by">田坂広志／光文社</div>
+          </div>
+        </div>
         <p>最先端量子科学の仮説から、生きる意味を静かに問い直す一冊。</p>
-        <span class="dose-tag">★★★★★ 持続性</span>
+        <div class="card-actions">
+          <span class="dose-tag">★★★★★ 持続性</span>
+          <a class="amazon-btn" href="https://www.amazon.co.jp/s?k=死は存在しない+田坂広志&tag=weboooftheday-22" target="_blank" rel="noopener" onclick="event.stopPropagation()">Amazonで見る →</a>
+        </div>
+        <span class="read-more">詳しい処方内容を見る →</span>
       </div>
-      <div class="rx-item">
-        <div class="symptom">症状：一歩を踏み出せない時に</div>
-        <h3>お金の生み出し方</h3>
-        <div class="by">今井孝／幻冬舎</div>
+      <div class="rx-item" onclick="openRx('book3')">
+        <div class="rx-top">
+          <div class="cover cover-3">お金の<br>生み出し方</div>
+          <div>
+            <div class="symptom">症状：一歩を踏み出せない時に</div>
+            <h3>お金の生み出し方</h3>
+            <div class="by">今井孝／幻冬舎</div>
+          </div>
+        </div>
         <p>「時間」ではなく「価値」で稼ぐという発想の転換を処方します。</p>
-        <span class="dose-tag">★★★★★ 実践向き</span>
+        <div class="card-actions">
+          <span class="dose-tag">★★★★★ 実践向き</span>
+          <a class="amazon-btn" href="https://www.amazon.co.jp/s?k=お金の生み出し方+今井孝&tag=weboooftheday-22" target="_blank" rel="noopener" onclick="event.stopPropagation()">Amazonで見る →</a>
+        </div>
+        <span class="read-more">詳しい処方内容を見る →</span>
       </div>
     </div>
   </div>
@@ -215,6 +296,97 @@
 </section>
 
 <footer>© Webook of the Day / Shinnosuke Matsuyama</footer>
+
+<div class="modal-overlay" id="rxModal" onclick="if(event.target===this) closeRx()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeRx()">×</button>
+    <div class="modal-top">
+      <div class="cover cover-lg" id="m-cover"></div>
+      <div>
+        <div class="symptom" id="m-symptom"></div>
+        <h3 id="m-title"></h3>
+        <div class="by" id="m-by"></div>
+      </div>
+    </div>
+
+    <div class="modal-block">
+      <div class="label">この本のツボは？</div>
+      <p id="m-tsubo"></p>
+    </div>
+    <div class="modal-block">
+      <div class="label">お薦め度は？</div>
+      <p><span class="stars" id="m-stars"></span></p>
+    </div>
+    <div class="modal-block">
+      <div class="label">知りたい？</div>
+      <p id="m-know"></p>
+    </div>
+    <div class="modal-block" style="margin-bottom:0;">
+      <div class="label">買いたい？</div>
+      <div class="modal-dose" id="m-dose"></div>
+      <a class="modal-amazon" id="m-amazon" href="#" target="_blank" rel="noopener">Amazonで見る →</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const rxData = {
+    book1: {
+      symptom: "症状：挫けそうな夜に",
+      title: "三流シェフ",
+      by: "三國清三／幻冬舎",
+      cover: "cover-1", coverText: "三流<br>シェフ",
+      tsubo: "北海道の貧しい漁師町に生まれた少年が、世界のMIKUNIと呼ばれるまでの半生記。何年も皿を洗い続けた雑用の日々こそが、後の飛躍を支えたと著者は語ります。「大波が来たら逃げるな、真正面からぶつかっていけ」という父の言葉が全編を貫いていて、年の瀬に読むと不思議と背筋が伸びる一冊です。",
+      stars: "★★★★★",
+      know: "・目の前の雑用に意味を見出せずにいる方／・大きな壁を前に足がすくんでいる方／・年末に気持ちを立て直したい方",
+      dose: "Amazon・楽天ブックスほか主要書店で購入可（幻冬舎刊）",
+      amazon: "https://www.amazon.co.jp/s?k=三流シェフ+三國清三&tag=weboooftheday-22"
+    },
+    book2: {
+      symptom: "症状：漠然とした不安に",
+      title: "死は存在しない",
+      by: "田坂広志／光文社",
+      cover: "cover-2", coverText: "死は存在<br>しない",
+      tsubo: "最先端の量子科学が示す新たな仮説をもとに、死後、私たちの意識はどうなるのかという未踏の領域に踏み込んだ一冊。科学と宗教のあいだに橋をかけるような論の運びで、読み終えたときには宇宙の淵まで旅をしたような、静かな心の解放を覚えます。",
+      stars: "★★★★★",
+      know: "・漠然とした将来や死への不安を抱えている方／・科学にも宗教にも半信半疑な方／・静かに自分と向き合う時間がほしい方",
+      dose: "Amazon・楽天ブックスほか主要書店で購入可（光文社刊）",
+      amazon: "https://www.amazon.co.jp/s?k=死は存在しない+田坂広志&tag=weboooftheday-22"
+    },
+    book3: {
+      symptom: "症状：一歩を踏み出せない時に",
+      title: "誰でもできるのに９割の人が気づいていない、お金の生み出し方",
+      by: "今井孝／幻冬舎",
+      cover: "cover-3", coverText: "お金の<br>生み出し方",
+      tsubo: "「時間を切り売りする」のではなく「価値を生み出す」ことでお金に変えるという発想の転換を、具体的なステップで示してくれる一冊。特別なスキルや資格がなくても始められる、という語り口が、副業や起業を考え始めた人の背中をそっと押してくれます。",
+      stars: "★★★★★",
+      know: "・「時間がないから稼げない」と感じている方／・独立や副業の一歩目を探している方／・お金と自分の関係を見直したい方",
+      dose: "Amazon・楽天ブックスほか主要書店で購入可（幻冬舎刊）",
+      amazon: "https://www.amazon.co.jp/s?k=お金の生み出し方+今井孝&tag=weboooftheday-22"
+    }
+  };
+
+  function openRx(id){
+    const d = rxData[id];
+    document.getElementById('m-symptom').textContent = d.symptom;
+    document.getElementById('m-title').textContent = d.title;
+    document.getElementById('m-by').textContent = d.by;
+    document.getElementById('m-tsubo').textContent = d.tsubo;
+    document.getElementById('m-stars').textContent = d.stars;
+    document.getElementById('m-know').textContent = d.know;
+    document.getElementById('m-dose').textContent = d.dose;
+    const cover = document.getElementById('m-cover');
+    cover.className = 'cover cover-lg ' + d.cover;
+    cover.innerHTML = d.coverText;
+    document.getElementById('m-amazon').href = d.amazon;
+    document.getElementById('rxModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeRx(){
+    document.getElementById('rxModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+</script>
 
 </body>
 </html>
