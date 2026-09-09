@@ -21,6 +21,8 @@
     margin:0; background:var(--bg); color:var(--ink);
     font-family:"Hiragino Maru Gothic ProN","Hiragino Maru Gothic Pro","游ゴシック体","Yu Gothic",sans-serif;
     line-height:1.85;
+    word-break:keep-all;
+    overflow-wrap:anywhere;
   }
   .serif{ font-family:inherit; }
   a{ color:inherit; }
@@ -28,6 +30,8 @@
 
   header{ padding:20px 0; border-bottom:2px solid var(--ink); }
   header .wrap{ display:flex; justify-content:space-between; align-items:center; }
+  header .brand{ display:flex; align-items:center; gap:12px; }
+  .brand-logo{ height:38px; width:auto; border-radius:6px; }
   .brand{ font-weight:900; font-size:20px; }
   .brand small{ font-weight:400; font-size:12px; display:block; color:var(--sage); letter-spacing:0.1em;}
   nav a{ margin-left:28px; font-size:18px; text-decoration:none; font-weight:700; }
@@ -46,16 +50,16 @@
   }
   .rx-card .head{ display:flex; justify-content:space-between; border-bottom:1px dashed var(--line); padding-bottom:14px; margin-bottom:16px; }
   .rx-card .head b{ font-size:13px; }
-  .rx-line{ display:flex; justify-content:space-between; font-size:13px; margin-bottom:10px; color:var(--muted-soft); }
+  .rx-line{ display:flex; justify-content:space-between; font-size:13px; margin-bottom:10px; color:var(--muted-soft); gap:12px; }
+  .rx-line span{ white-space:nowrap; flex-shrink:0; }
   .rx-line b{ color:var(--ink); }
-  .rx-card .rx-title{ font-size:19px; margin:14px 0 6px; font-weight:700; }
+  .rx-card .rx-title{ font-size:19px; margin:14px 0 6px; font-weight:700; white-space:nowrap; }
   .rx-dose{ font-size:12.5px; color:var(--clay); background:rgba(226,130,90,0.15); padding:8px 12px; border-radius:4px; margin-top:14px; }
 
   .section{ padding:74px 0; border-top:1px solid var(--line); }
   .eyebrow{ font-size:12.5px; font-weight:700; color:var(--clay); margin-bottom:10px; }
   .section h2{ font-size:27px; margin:0 0 44px; font-weight:900; }
 
-  /* symptom -> book grid */
   .rx-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
   .rx-item{ background:var(--card); border:1px solid var(--line); border-radius:8px; padding:26px; }
   .symptom{ font-size:12.5px; color:var(--sage); font-weight:700; margin-bottom:10px; }
@@ -67,7 +71,6 @@
   .rx-item:hover{ transform:translateY(-4px); border-color:var(--sage); }
   .read-more{ display:block; margin-top:14px; font-size:12.5px; color:var(--clay); font-weight:700; }
 
-  /* book cover */
   .cover{
     width:60px; height:84px; border-radius:3px; flex-shrink:0;
     display:flex; align-items:center; justify-content:center; text-align:center;
@@ -84,7 +87,6 @@
   .amazon-btn{ font-size:12px; font-weight:700; color:var(--clay); text-decoration:none; border-bottom:1px solid var(--clay); padding-bottom:1px; }
   .amazon-btn:hover{ opacity:0.8; }
 
-  /* modal */
   .modal-overlay{
     display:none; position:fixed; inset:0; background:rgba(10,16,12,0.72);
     z-index:100; padding:40px 20px; overflow-y:auto;
@@ -113,7 +115,6 @@
     font-weight:700; padding:12px 28px; border-radius:6px; font-size:14px;
   }
 
-  /* how it's compounded (structure) */
   .compound{ display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:1px solid var(--ink); border-radius:8px; overflow:hidden; }
   .compound > div{ padding:30px 22px; border-right:1px solid var(--ink); background:var(--card); }
   .compound > div:last-child{ border-right:none; }
@@ -121,7 +122,6 @@
   .compound h4{ font-size:15.5px; margin:0 0 8px; font-weight:700; }
   .compound p{ font-size:12.5px; color:var(--muted); margin:0; }
 
-  /* pharmacist / author */
   .pharm{ display:grid; grid-template-columns:160px 1fr; gap:36px; align-items:center; }
   .pharm-badge{
     width:160px; height:160px; border-radius:50%; background:var(--sage);
@@ -131,7 +131,6 @@
   .pharm h3{ font-size:19px; margin:0 0 12px; font-weight:700; }
   .pharm p{ font-size:14.5px; color:var(--muted-soft); }
 
-  /* archive as prescription log */
   .log{ list-style:none; padding:0; margin:0; }
   .log li{ display:grid; grid-template-columns:110px 1fr 120px; gap:16px; padding:16px 0; border-bottom:1px dashed var(--line); font-size:14px; align-items:center; }
   .log .d{ font-size:12.5px; color:var(--muted); }
@@ -161,7 +160,7 @@
 
 <header>
   <div class="wrap">
-    <div class="brand">Webook of the Day<small>心の処方箋メールマガジン</small></div>
+    <div class="brand"><img class="brand-logo" src="images/logo-webook.jpg" alt="Webook of the Day ロゴ"><span>Webook of the Day<small>心の処方箋メールマガジン</small></span></div>
     <nav>
       <a href="#rx">処方例</a>
       <a href="#compound">調剤の流れ</a>
@@ -173,7 +172,7 @@
 <section class="hero">
   <div class="wrap">
     <div>
-      <div class="rx-mark"><img src="images/logo-webook.jpg" alt="Webook of the Day ロゴ"></div>
+      <div class="rx-mark">℞</div>
       <h1><span class="line">心のビタミン不足に、</span><span class="line">本の処方箋をどうぞ。</span></h1>
       <p>「Webook of the Day」は、松山真之助が26年間続けてきた書評メルマガ。悩みや疲れに効く一冊を、症状にあわせて毎回お届けします。</p>
     </div>
