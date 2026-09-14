@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>三流シェフ｜Webook of the Day コラム</title>
+<style>
+  :root{
+    --bg:#16241C; --card:#1F3327; --sage:#8FAF7C; --sage-deep:#2F4A34;
+    --clay:#E2825A; --ink:#EDE6D6; --line: rgba(237,230,214,0.15);
+    --muted:#9FAE98; --muted-soft:#C7D0C0;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Hiragino Maru Gothic ProN","Hiragino Maru Gothic Pro","游ゴシック体","Yu Gothic",sans-serif;
+    line-height:1.95; word-break:keep-all; overflow-wrap:anywhere;
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:760px; margin:0 auto; padding:0 28px; }
+
+  header{ padding:20px 0; border-bottom:2px solid var(--ink); }
+  header .inner{ max-width:1000px; margin:0 auto; padding:0 28px; display:flex; justify-content:space-between; align-items:center; }
+  .brand{ display:flex; align-items:center; gap:12px; font-weight:900; font-size:20px; text-decoration:none; color:var(--ink); }
+  .brand-logo{ height:38px; width:auto; border-radius:6px; }
+  .brand small{ font-weight:400; font-size:12px; display:block; color:var(--sage); letter-spacing:0.1em;}
+  nav a{ margin-left:24px; font-size:15px; text-decoration:none; font-weight:700; }
+
+  .back-link{ display:inline-block; margin:30px 0 0; font-size:13px; color:var(--sage); text-decoration:none; font-weight:700; }
+
+  .art-head{ padding:26px 0 30px; border-bottom:1px solid var(--line); margin-bottom:36px; }
+  .art-num{ font-size:12.5px; color:var(--clay); font-weight:700; letter-spacing:0.1em; margin-bottom:14px; }
+  .art-title{ font-size:clamp(26px,5vw,38px); font-weight:900; line-height:1.5; margin:0 0 16px; }
+  .art-date{ font-size:12.5px; color:var(--muted); }
+
+  .lead{
+    background:var(--card); border-left:4px solid var(--sage); border-radius:0 8px 8px 0;
+    padding:22px 26px; margin-bottom:38px; font-size:14.5px; color:var(--muted-soft); font-style:italic;
+  }
+
+  .book-block{ display:flex; gap:24px; align-items:flex-start; margin-bottom:36px; flex-wrap:wrap; }
+  .book-cover{ width:150px; flex-shrink:0; border-radius:4px; box-shadow:5px 5px 0 var(--sage); }
+  .book-meta{ flex:1; min-width:220px; }
+  .book-meta h2{ font-size:20px; margin:0 0 8px; font-weight:700; }
+  .book-meta .pub{ font-size:13px; color:var(--muted); margin-bottom:18px; }
+  .amazon-links{ display:flex; gap:12px; flex-wrap:wrap; }
+  .amazon-btn{
+    display:inline-block; background:var(--clay); color:#fff; text-decoration:none;
+    font-weight:700; padding:11px 22px; border-radius:6px; font-size:13.5px;
+  }
+  .amazon-btn.alt{ background:transparent; border:1px solid var(--clay); color:var(--clay); }
+
+  .body-text p{ font-size:15.5px; color:var(--muted-soft); margin:0 0 22px; }
+  .body-text p:first-of-type::first-letter{ font-size:1.6em; color:var(--sage); font-weight:900; }
+
+  .author-box{
+    display:flex; gap:16px; align-items:center; background:var(--card); border:1px solid var(--line);
+    border-radius:10px; padding:22px; margin:50px 0 40px;
+  }
+  .author-box img{ width:44px; height:44px; border-radius:50%; flex-shrink:0; background:#fff; }
+  .author-box p{ font-size:12.5px; color:var(--muted); margin:0; line-height:1.7; }
+  .author-box b{ color:var(--ink); }
+
+  footer{ text-align:center; padding:34px 0; font-size:12px; color:var(--muted); border-top:1px solid var(--line); margin-top:40px; }
+
+  @media (max-width:600px){
+    .book-block{ flex-direction:column; align-items:center; text-align:center; }
+    .amazon-links{ justify-content:center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <a class="brand" href="../index.html"><img class="brand-logo" src="../images/logo-webook.jpg" alt="Webook of the Day ロゴ"><span>Webook of the Day<small>心の処方箋メールマガジン</small></span></a>
+    <nav>
+      <a href="index.html">コラム一覧</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <a class="back-link" href="index.html">← コラム一覧に戻る</a>
+
+  <div class="art-head">
+    <div class="art-num">第8回コラム</div>
+    <h1 class="art-title">雑用こそが突破口だ！〜三國清三半生記</h1>
+    <div class="art-date">2023年1月4日</div>
+  </div>
+
+  <div class="lead">
+    みなさん、明けましておめでとうございます。松山真之助です。本日は、オテル・ドゥ・ミクニのオーナーシェフ三國さんの波乱万丈なライフ・ストーリーです。様々な状況に立ち向かわれている経営者の皆様に、不思議な勇気とワクワクのギフトが届くのではないかと思います。
+  </div>
+
+  <div class="book-block">
+    <img class="book-cover" src="../images/column/article-sanryu-chef-cover.png" alt="三流シェフ 書影">
+    <div class="book-meta">
+      <h2>三流シェフ</h2>
+      <div class="pub">三國清三 著／幻冬舎（2022/12/14）</div>
+      <div class="amazon-links">
+        <a class="amazon-btn" href="https://www.amazon.co.jp/s?k=三流シェフ+三國清三&tag=weboooftheday-22" target="_blank" rel="noopener">Amazon（書籍）→</a>
+        <a class="amazon-btn alt" href="https://www.amazon.co.jp/s?k=三流シェフ+Kindle&tag=weboooftheday-22" target="_blank" rel="noopener">Amazon（Kindle）→</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="body-text">
+    <p>三國清三（みくに・きよみ）さん、1954年生まれの67歳。北海道の貧しい漁師の家生まれで、小学生の頃から漁に出ていたという。そんな少年がふとしたはずみでレストランの厨房に紛れ込む。それが人生の転機に。この本は、今や世界のMIKUNIとなった三國さんの波乱万丈な半生記です。</p>
+    <p>中学卒業後、札幌グランドホテル、帝国ホテルで修行し、駐スイス日本大使館ジュネーブ軍縮会議日本政府代表部料理長に就任。その後いくつかの三つ星レストランで修行を重ね帰国。今から37年前、1985年に東京・四谷に「オテル・ドゥ・ミクニ」を開店。著者の経歴を並べるとこんな感じですが、全ての経歴には波乱万丈なドラマが潜んでいます。世界のMIKUNIとしての超有名な存在となっている三國さんも、若い頃は苦労や挫折の連続。しかもそれは、常人にとってはとても受容できそうもないものでした。</p>
+    <p>レストランの厨房で何年も皿や鍋を洗い続けてきた三國さん。「雑用こそ人生の突破口だ」と、人が嫌がる仕事を自らかって出る。しかも、とんでもない量をこなす。すると、仲間からは感謝され、徐々に話もできるようになる。やがて、トップのシェフの目にも止まり、幸運の女神が微笑む。そんなことが、三國さんの人生のいろいろな場面で登場します。</p>
+    <p>世の中の不条理やどうしようもない苦境に遭遇したとき、どうするか。あきらめずに目の前のできることに集中する、何かできることはないか目を皿のようにして見つめ、考え、行動する。この本を読むと、訳もわからず勇気がもらえる気がします。</p>
+    <p>三國さんは幼いころから父親と一緒に漁に出ていました。その時に、親から教わった大切な言葉は「大波が来たら逃げるな。船の真正面からぶつかっていけ。逃げようとして波を横腹に受けると船は沈むぞ。」でした。その言葉通り、様々な苦境に際し、三國さんは常に正面突破を試みる。</p>
+    <p>最初に狙いを定めたのは札幌グランドホテル。天皇陛下も止まる皇室御用達。そこのレストランのコックになろうというのが三國少年の夢。しかし、中卒の三國さんには、就職する資格さえなかった。中卒では応募すらできない。しかし、なんとしてもグランドホテルのコックになると決めた三國少年は、わずかな機会を逃さず大胆な行動に出る。当時の西洋料理課長代理の青木さんに直談判。よほど真剣な目をしていたのでしょう。後年、その青木さんは「あんな目をした人間は見たことがなかった」と述懐する。</p>
+    <p>その後、東京の帝国ホテルに潜り込み、当時の総料理長、村上さんにも認められるほどになりますが、正社員になる夢は、直前で断たれる。悲嘆に暮れながらも帝国ホテルに自分の爪痕を残そうと、全ての厨房（当時ホテルには18のレストランがあった）の鍋をピカピカにして去ろうとする三國青年。そこに声をかけてくれたのが、総料理長の村上さん。なんとオーストリア大使館付きの料理長に推薦してくれたのです。出国する三國さんに総料理長の村上さんは、「10年は帰ってくるな、稼いだ金は自己投資しなさい」と声をかけます。</p>
+    <p>その言葉通り、三國さんは大使館付きのシェフを皮切りに、多くの三つ星レストランの門をたたき（←まさに、門をたたき、追い出され、諦めずなんとしても潜り込み・・・というのが三國スタイル）修行を重ねます。</p>
+    <p>フレンチの最高峰といわれたフレディ・ジラルド（即興の天才）やアラン・シャペル（料理の哲学者）にも薫陶を受けて帰国。帰国後は、ジャポネーゼという独自のフレンチを開拓し、「オテル・ドゥ・ミクニ」を開業。この時も数奇な出会いと強運、そして行動力がありました。</p>
+    <p>さて、37年続けてきた「オテル・ドゥ・ミクニ」を三國さんは2022年12月に閉じました。これまでにもてなしたお客さまの総数は30万人を超えるという。歌手、芸術家、各国元首、大使、ハリウッドスターなど著名人だけでもすごい数に上る。そして、3年後、三國さんが70歳のときには、新たに小さなレストランが生まれることになる。これは楽しみです！</p>
+    <p>本書は、ビジネス書というより哲学書というほうが似合うでしょう。料理という世界を通じて、どう生きるか、己は何者か、・・・日々の真剣勝負の中で、呻吟しながら突き進んできた三國さんの半生記は、ドキドキの連続でもあり、人の縁と時の運を呼び込む三國ストーリーに、なぜか元気がもらえます。</p>
+  </div>
+
+  <div class="author-box">
+    <img src="../images/column/author-matsuyama-icon.gif" alt="松山真之助">
+    <p><b>ブログ著者：松山真之助</b>　ビジネスをアートにする研究所代表。大手エアラインに勤務後、地域支援や中小企業支援に奔走している。メルマガ「Webook of the Day」を長年にわたって発信。1万人以上の読者に愛されてきた。このメルマガを契機に、著述活動や東京藝術大学などでの教育活動にも幅を広げている。2022年からソフィアバンク・コーディネーター。Mail：webook@yahoo.co.jp</p>
+  </div>
+
+  <a class="back-link" href="index.html">← コラム一覧に戻る</a>
+</div>
+
+<footer>© Webook of the Day / Shinnosuke Matsuyama</footer>
+
+</body>
+</html>

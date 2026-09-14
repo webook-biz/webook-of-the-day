@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>コラム一覧｜Webook of the Day</title>
+<style>
+  :root{
+    --bg:#16241C; --card:#1F3327; --sage:#8FAF7C; --sage-deep:#2F4A34;
+    --clay:#E2825A; --ink:#EDE6D6; --line: rgba(237,230,214,0.15);
+    --muted:#9FAE98; --muted-soft:#C7D0C0;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Hiragino Maru Gothic ProN","Hiragino Maru Gothic Pro","游ゴシック体","Yu Gothic",sans-serif;
+    line-height:1.9; word-break:keep-all; overflow-wrap:anywhere;
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:1000px; margin:0 auto; padding:0 28px; }
+
+  header{ padding:20px 0; border-bottom:2px solid var(--ink); }
+  header .inner{ display:flex; justify-content:space-between; align-items:center; max-width:1000px; margin:0 auto; padding:0 28px; }
+  .brand{ display:flex; align-items:center; gap:12px; font-weight:900; font-size:20px; text-decoration:none; color:var(--ink); }
+  .brand-logo{ height:38px; width:auto; border-radius:6px; }
+  .brand small{ font-weight:400; font-size:12px; display:block; color:var(--sage); letter-spacing:0.1em;}
+
+  .page-head{ padding:56px 0 40px; }
+  .page-head .eyebrow{ font-size:12.5px; color:var(--clay); font-weight:700; margin-bottom:12px; }
+  .page-head h1{ font-size:clamp(26px,4.5vw,38px); font-weight:900; margin:0 0 16px; }
+  .page-head p{ color:var(--muted-soft); font-size:14.5px; max-width:56ch; }
+
+  .col-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; padding-bottom:70px; }
+  .col-card{
+    background:var(--card); border:1px solid var(--line); border-radius:10px; overflow:hidden;
+    text-decoration:none; color:inherit; display:flex; flex-direction:column;
+    transition:transform .15s ease, border-color .15s ease;
+  }
+  .col-card:hover{ transform:translateY(-4px); border-color:var(--sage); }
+  .col-cover{ width:100%; aspect-ratio:3/4; object-fit:contain; background:#152018; }
+  .col-body{ padding:18px 20px 22px; flex:1; display:flex; flex-direction:column; }
+  .col-num{ font-size:11px; color:var(--clay); font-weight:700; margin-bottom:8px; }
+  .col-title{ font-size:16px; font-weight:700; margin:0 0 6px; line-height:1.6; }
+  .col-date{ font-size:12px; color:var(--muted); margin-top:auto; padding-top:12px; }
+
+  footer{ text-align:center; padding:34px 0; font-size:12px; color:var(--muted); border-top:1px solid var(--line); }
+
+  @media (max-width:760px){
+    .col-grid{ grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width:480px){
+    .col-grid{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <a class="brand" href="../index.html"><img class="brand-logo" src="../images/logo-webook.jpg" alt="Webook of the Day ロゴ"><span>Webook of the Day<small>心の処方箋メールマガジン</small></span></a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="page-head">
+    <div class="eyebrow">COLUMN</div>
+    <h1>これまでのコラム</h1>
+    <p>松山真之助が銀行機関誌向けに執筆してきた書評コラムを、順次公開しています。</p>
+  </div>
+
+  <div class="col-grid">
+    <a class="col-card" href="hisui-kotaro.html">
+      <img class="col-cover" src="../images/column/article-hisui-cover.jpg" alt="人生最後の日にガッツポーズして死ねるたったひとつの生き方 書影">
+      <div class="col-body">
+        <div class="col-num">第1回</div>
+        <div class="col-title">あなたの墓石に刻まれる言葉は！？</div>
+        <div class="col-date">2022.05.10</div>
+      </div>
+    </a>
+    <a class="col-card" href="takano-noboru.html">
+      <img class="col-cover" src="../images/column/article-takano-cover.png" alt="サービスを超える瞬間 書影">
+      <div class="col-body">
+        <div class="col-num">第2回</div>
+        <div class="col-title">満足を感動に変える秘密が解き明かされる</div>
+        <div class="col-date">2022.05.10</div>
+      </div>
+    </a>
+    <a class="col-card" href="kimi-shikainai.html">
+      <img class="col-cover" src="../images/column/article-kimishika-cover.png" alt="君しかいない！と言われる人になる 書影">
+      <div class="col-body">
+        <div class="col-num">第3回</div>
+        <div class="col-title">社員の多くが起業家的習慣をもつヒント満載！</div>
+        <div class="col-date">2022.07.22</div>
+      </div>
+    </a>
+    <a class="col-card" href="kosaka-yuji.html">
+      <img class="col-cover" src="../images/column/article-kosaka-cover.png" alt="「顧客消滅」時代のマーケティング 書影">
+      <div class="col-body">
+        <div class="col-num">第5回</div>
+        <div class="col-title">中途半端はいけない！心が豊かになる商品を！</div>
+        <div class="col-date">2022.09.23</div>
+      </div>
+    </a>
+    <a class="col-card" href="tradeoff.html">
+      <img class="col-cover" src="../images/column/article-tradeoff-cover.png" alt="トレードオフ 書影">
+      <div class="col-body">
+        <div class="col-num">第6回</div>
+        <div class="col-title">中途半端はいけない〜その2！　上質か／お手頃か</div>
+        <div class="col-date">2022.10.23</div>
+      </div>
+    </a>
+    <a class="col-card" href="shinriteki-anzensei.html">
+      <img class="col-cover" src="../images/column/article-shinriteki-cover.png" alt="心理的安全性を高めるリーダーの声かけベスト100 書影">
+      <div class="col-body">
+        <div class="col-num">第7回</div>
+        <div class="col-title">職場の心理的安全性を高めると何が起きるのか⁈</div>
+        <div class="col-date">2022.11.21</div>
+      </div>
+    </a>
+    <a class="col-card" href="sanryu-chef.html">
+      <img class="col-cover" src="../images/column/article-sanryu-chef-cover.png" alt="三流シェフ 書影">
+      <div class="col-body">
+        <div class="col-num">第8回</div>
+        <div class="col-title">雑用こそが突破口だ！〜三國清三半生記</div>
+        <div class="col-date">2023.01.04</div>
+      </div>
+    </a>
+    <a class="col-card" href="kayak-shacho-nikki.html">
+      <img class="col-cover" src="../images/column/article-kayak-cover.png" alt="面白法人カヤック社長の日記 書影">
+      <div class="col-body">
+        <div class="col-num">第9回</div>
+        <div class="col-title">面白法人⁈って何？</div>
+        <div class="col-date">2023.01.28</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<footer>© Webook of the Day / Shinnosuke Matsuyama</footer>
+
+</body>
+</html>
